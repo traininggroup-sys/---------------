@@ -3,141 +3,114 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>الأسئلة الشائعة (FAQ) - تصميم التبويبات الحديث</title>
+    <title>الأسئلة الشائعة (FAQ) - بساطة أنيقة</title>
     <link
-      href="https://fonts.googleapis.com/css2?family=Changa:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800&display=swap"
       rel="stylesheet"
     />
     <style>
-      /* --- الألوان والمظهر العام الجديد --- */
+      /* --- الألوان والمظهر العام (Clean Minimalism) --- */
       :root {
-        --main-blue: #0f4c75; /* أزرق مؤسسي داكن */
-        --highlight-cyan: #32a8a8; /* تركواز للتمييز */
+        --primary-dark: #2c3e50; /* أزرق داكن (تقريباً أسود) */
+        --accent-soft: #f9c2d7; /* وردي ناعم للتمييز */
         --background-light: #f7f9fc;
         --card-bg: #ffffff;
-        --text-dark: #333333;
-        --border-color: #dee2e6;
+        --text-color: #34495e;
+        --border-clean: #e4e7eb;
       }
 
       body {
-        font-family: "Changa", sans-serif;
+        font-family: "Cairo", sans-serif;
         line-height: 1.7;
         background-color: var(--background-light);
-        color: var(--text-dark);
+        color: var(--text-color);
         margin: 0;
-        padding: 20px;
       }
 
       .container {
-        max-width: 950px;
-        margin: 40px auto;
+        max-width: 800px;
         background-color: var(--card-bg);
-        padding: 40px;
+        padding: 45px 35px;
         border-radius: 15px;
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        border: 1px solid var(--border-clean); /* حدود نظيفة */
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.04); /* ظل خفيف جداً */
       }
 
-      /* --- العناوين والترحيب --- */
+      /* --- العناوين --- */
       h1 {
-        color: var(--main-blue);
+        color: var(--primary-dark);
         text-align: center;
-        margin-bottom: 20px;
-        font-size: 2.5em;
+        margin-bottom: 50px;
+        font-size: 33px;
+        font-weight: 800;
+        position: relative;
+      }
+
+      h1::after {
+        content: "";
+        position: absolute;
+        bottom: -15px;
+        right: 50%;
+        transform: translateX(50%);
+        width: 60px;
+        height: 6px;
+        background-color: var(--accent-soft); /* خط التمييز الوردي */
+        border-radius: 3px;
+      }
+
+      h2 {
+        color: var(--primary-dark);
+        margin-top: 40px;
+        padding: 10px 0;
+        font-size: 1.6em;
         font-weight: 700;
-      }
-      .intro-note {
-        background-color: #e6f7ff;
-        border-right: 5px solid var(--highlight-cyan);
-        padding: 15px 20px;
-        margin-bottom: 30px;
-        border-radius: 8px;
-        font-weight: 600;
-        color: var(--main-blue);
-      }
-
-      /* --- تنسيق التبويبات (Tabs) --- */
-      .tab-menu {
-        display: flex;
-        justify-content: flex-start; /* الأزرار من اليمين */
-        border-bottom: 3px solid var(--border-color);
+        border-bottom: 2px solid var(--border-clean); /* فصل بسيط */
         margin-bottom: 20px;
-        overflow-x: auto;
-        padding-bottom: 5px;
       }
 
-      .tab-button {
-        background-color: transparent;
-        border: none;
-        padding: 10px 20px;
-        cursor: pointer;
-        font-size: 1.1em;
-        font-weight: 600;
-        color: #6c757d;
-        border-bottom: 3px solid transparent;
-        transition: all 0.3s;
-        margin-left: 5px; /* مسافة بين الأزرار */
-      }
-
-      .tab-button.active {
-        color: var(--main-blue);
-        border-bottom: 3px solid var(--highlight-cyan); /* خط تحت التبويبة النشطة */
-        font-weight: 700;
-      }
-
-      .tab-content {
-        display: none; /* إخفاء المحتوى الافتراضي */
-        padding-top: 20px;
-      }
-
-      .tab-content.active {
-        display: block; /* إظهار المحتوى النشط */
-      }
-
-      /* --- تنسيق الأكورديون داخل التبويبات --- */
+      /* --- تنسيق الأكورديون (الحدود النظيفة) --- */
       .accordion-item {
-        margin-bottom: 12px;
-        border: 1px solid #e9ecef;
-        border-radius: 8px;
-        overflow: hidden;
-        transition: box-shadow 0.3s;
+        margin-bottom: 1px; /* مسافة بسيطة */
+        border-bottom: 1px solid var(--border-clean);
+        transition: background-color 0.3s;
+      }
+
+      .accordion-item:last-child {
+        border-bottom: none;
       }
 
       .accordion-item:hover {
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        background-color: #fafafa;
       }
 
       .question-header {
-        background-color: var(--card-bg);
-        padding: 15px 20px;
+        background-color: transparent;
+        padding: 18px 0;
         cursor: pointer;
         display: flex;
         justify-content: space-between;
         align-items: center;
         font-weight: 700;
-        color: var(--text-dark);
+        color: var(--text-color);
         font-size: 1.05em;
-        transition: background-color 0.3s;
-      }
-
-      .question-header:hover {
-        background-color: #f0f3f5;
+        transition: color 0.3s;
       }
 
       .question-header.active {
-        background-color: var(--main-blue);
-        color: #ffffff;
+        color: var(--primary-dark); /* لون داكن للتأكيد */
       }
 
       .accordion-content {
-        padding: 0 20px;
-        background-color: #fcfcfc;
+        padding: 0;
+        background-color: #ffffff;
         max-height: 0;
         overflow: hidden;
         transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out;
+        color: var(--text-color);
       }
 
       .accordion-content.active {
-        padding: 15px 20px;
+        padding: 10px 0 20px 0;
         max-height: 1000px;
       }
 
@@ -145,232 +118,186 @@
         font-size: 1.2em;
         transition: transform 0.3s;
         transform: rotate(0deg);
+        color: var(--accent-soft);
       }
       .question-header.active .arrow {
         transform: rotate(180deg);
-        color: var(--highlight-cyan); /* لون مميز للسهم عند الفتح */
+        color: var(--primary-dark);
       }
 
-      /* --- تنسيق الملحقات --- */
+      /* تنسيق نص الإجابة الداخلي */
+      .accordion-content p strong {
+        color: var(--primary-dark);
+        font-weight: 700;
+      }
+      ul,
+      ol {
+        margin: 10px 0;
+        padding-right: 25px;
+      }
+
+      /* --- الملحقات والأزرار --- */
+      .note {
+        background-color: #fff0f5; /* لون خفيف جداً يتماشى مع الـ accent */
+        border-right: 4px solid var(--accent-soft);
+        padding: 15px 20px;
+        margin: 20px 0;
+        border-radius: 6px;
+        font-weight: 600;
+        color: #5d2b38; /* لون داكن مناسب للوردي */
+      }
+      .accordion-content .note {
+        background-color: #fef8f8;
+        border-right-color: #dc3545;
+        color: #721c24;
+      }
+
       .link-btn {
         display: inline-flex;
         align-items: center;
         gap: 8px;
         padding: 10px 20px;
         margin: 15px 0;
-        background-color: var(--highlight-cyan);
+        background-color: var(--primary-dark);
         color: #ffffff;
         text-decoration: none;
-        border-radius: 6px;
+        border-radius: 5px;
         font-weight: 700;
-        transition: background-color 0.3s;
+        transition: background-color 0.3s, transform 0.2s;
       }
       .link-btn:hover {
-        background-color: #278f8f;
+        background-color: #34495e;
+        transform: translateY(-1px);
       }
 
-      .note {
-        background-color: #fff0f0;
-        border-right: 4px solid #dc3545;
-        padding: 10px 20px;
-        margin: 15px 0;
-        border-radius: 5px;
-        color: #721c24;
-        font-weight: 600;
-      }
       .image-placeholder {
         display: flex;
         justify-content: center;
         align-items: center;
         width: 100%;
         height: 120px;
-        background-color: #e9ecef;
-        color: #6c757d;
+        background-color: #f0f0f0;
+        color: #a0a0a0;
         margin: 15px 0;
-        border-radius: 8px;
+        border-radius: 5px;
       }
     </style>
   </head>
   <body>
     <div class="container">
-      <h1>دليل الأسئلة الشائعة ❓</h1>
+      <h1>🌸 الأسئلة الشائعة دليل بسيط وأنيق</h1>
 
-      <div class="intro-note">
-        👋 **مرحباً بك:** تم تقسيم الأسئلة الشائعة إلى أقسام لسهولة الوصول. اختر
-        القسم من الأعلى.
+      <div class="note">
+        ✅ **ملحوظة:** تصميم بسيط، واضح، ويعتمد على الحدود النظيفة والمساحات
+        البيضاء لراحة العين.
       </div>
 
-      <div class="tab-menu">
-        <button class="tab-button active" data-tab="tab-location">
-          <span class="emoji">📍</span> مكان الامتحان
-        </button>
-        <button class="tab-button" data-tab="tab-content">
-          <span class="emoji">📚</span> محتوى الامتحان
-        </button>
-        <button class="tab-button" data-tab="tab-terms">
-          <span class="emoji">💡</span> مصطلحات وشروحات
-        </button>
-        <button class="tab-button" data-tab="tab-start">
-          <span class="emoji">🚀</span> البداية والمتابعة
-        </button>
-      </div>
-
-      <div id="tab-location" class="tab-content active">
-        <div class="accordion-item">
-          <div class="question-header">
-            <span>س: همتحن فين؟</span>
-            <span class="arrow">⬇️</span>
-          </div>
-          <div class="accordion-content active">
-            <p>
-              <strong>الإجابة:</strong> المكان الفعلي للامتحان سينزل لك في رابط
-              "الاستعلام" الخاص بمسابقتك.
-            </p>
-            <ul>
-              <li>
-                **حالياً:** مكان الامتحان المعلن هو في مقر **الجهاز المركزي
-                للتنظيم والإدارة** بمدينة نصر.
-              </li>
-            </ul>
-          </div>
+      <h2>📍 مكان الامتحان</h2>
+      <div class="accordion-item">
+        <div class="question-header">
+          <span>س: همتحن فين؟</span>
+          <span class="arrow">⬇️</span>
+        </div>
+        <div class="accordion-content">
+          <p>
+            <strong>الإجابة:</strong> المكان الفعلي للامتحان سينزل لك في رابط
+            "الاستعلام" الخاص بمسابقتك.
+          </p>
+          <ul>
+            <li>
+              **حالياً:** المكان المعلن هو في مقر **الجهاز المركزي للتنظيم
+              والإدارة** بمدينة نصر.
+            </li>
+          </ul>
         </div>
       </div>
 
-      <div id="tab-content" class="tab-content">
-        <div class="accordion-item">
-          <div class="question-header">
-            <span>س: همتحن إيه؟</span>
-            <span class="arrow">⬇️</span>
-          </div>
-          <div class="accordion-content">
-            <p>امتحان الجهاز المركزي موحد في **المحاور المشتركة**، وهي:</p>
-            <ol>
-              <li>
-                المحور الأول (محور الكفايات السلوكية والنفسية، عبارة عن جدرات
-                سلوكية + قدرات وظيفية + وايكيو)
-              </li>
-              <li>المحور الثاني (الكفايات اللغوية، عبارة عن عربي وانجليزي)</li>
-              <li>
-                المحور الثالث (لكفايات المعرفية والتكنولوجية، عبارة عن المعلومات
-                العامة والحاسب الالي)
-              </li>
-            </ol>
-            <p>
-              **الجزء المختلف:** هو امتحان **كفايات التخصص** فقط، ويكون ذلك حسب
-              المسابقة.
-            </p>
-            <a href="#" class="link-btn">
-              <span class="emoji">🎬</span> شاهد الفيديو التوضيحي للمحاور
-            </a>
-          </div>
+      <h2>📚 محتوى ومحاور الامتحان</h2>
+      <div class="accordion-item">
+        <div class="question-header">
+          <span>س: همتحن إيه؟</span>
+          <span class="arrow">⬇️</span>
         </div>
+        <div class="accordion-content">
+          <p>امتحان الجهاز المركزي موحد في **المحاور المشتركة**، وهي:</p>
+          <ol>
+            <li>المحور الأول (القياس النفسي، إلخ)</li>
+            <li>المحور الثاني (المعلومات العامة، إلخ)</li>
+            <li>المحور الثالث (المهارات اللغوية، إلخ)</li>
+          </ol>
+          <p>
+            **الجزء المختلف:** هو امتحان **التخصص** فقط، ويكون ذلك حسب المسابقة.
+          </p>
+          <a href="#" class="link-btn">
+            <span class="emoji">🎬</span> شاهد الفيديو التوضيحي للمحاور
+          </a>
+        </div>
+      </div>
 
-        <div class="accordion-item">
-          <div class="question-header">
-            <span>س: الامتحان صح وغلط ولا فيه مقالي؟</span>
-            <span class="arrow">⬇️</span>
-          </div>
-          <div class="accordion-content">
-            <p>
-              الامتحان الحالي هو فقط:
-              <strong>اختيار من متعدد (Multiple Choice)</strong> و
-              <strong>صح وخطأ (True/False)</strong>.
-            </p>
-            <div class="note">
-              ⚠️ **ملاحظة:** لا يوجد أي نوع آخر من الأسئلة مثل الأسئلة المقالية.
-            </div>
+      <h2>❓ نوعية الأسئلة</h2>
+      <div class="accordion-item">
+        <div class="question-header">
+          <span>س: الامتحان صح وغلط ولا فيه مقالي؟</span>
+          <span class="arrow">⬇️</span>
+        </div>
+        <div class="accordion-content">
+          <p>
+            الامتحان الحالي هو فقط:
+            <strong>اختيار من متعدد (Multiple Choice)</strong> و
+            <strong>صح وخطأ (True/False)</strong>.
+          </p>
+          <div class="note">
+            ⚠️ **ملاحظة:** لا يوجد أي نوع آخر من الأسئلة مثل الأسئلة المقالية.
           </div>
         </div>
       </div>
 
-      <div id="tab-terms" class="tab-content">
-        <div class="accordion-item">
-          <div class="question-header">
-            <span>س: يعني إيه استفتاء؟</span>
-            <span class="arrow">⬇️</span>
-          </div>
-          <div class="accordion-content">
-            <div class="image-placeholder">
-              🖼️ ضع هنا صورة (سكرين شوت) للاستفتاء
-            </div>
-            <p>الاستفتاء هو طريقة لتقييم معلوماتك السريعة في نقطة محددة.</p>
-            <a href="#" class="link-btn">
-              <span class="emoji">🎬</span> فيديو لمعرفة الإجابة الصحيحة
-            </a>
-          </div>
+      <h2>💡 مصطلحات وشروحات الجروب</h2>
+      <div class="accordion-item">
+        <div class="question-header">
+          <span>س: يعني إيه استفتاء؟</span>
+          <span class="arrow">⬇️</span>
         </div>
-
-        <div class="accordion-item">
-          <div class="question-header">
-            <span>س: يعني إيه اختبار بوقت؟</span>
-            <span class="arrow">⬇️</span>
+        <div class="accordion-content">
+          <div class="image-placeholder">
+            🖼️ ضع هنا صورة (سكرين شوت) للاستفتاء
           </div>
-          <div class="accordion-content">
-            <p>
-              هذا الاختبار هو نوع جديد من التدريب يُركز على قياس سرعتك في
-              الإجابة، وهو متاح في **محور مشترك جديد**.
-            </p>
-          </div>
+          <p>الاستفتاء هو طريقة لتقييم معلوماتك السريعة في نقطة محددة.</p>
+          <a href="#" class="link-btn">
+            <span class="emoji">🎬</span> فيديو لمعرفة الإجابة الصحيحة
+          </a>
         </div>
       </div>
 
-      <div id="tab-start" class="tab-content">
-        <div class="accordion-item">
-          <div class="question-header">
-            <span>س: أبدأ إزاي مذاكرة؟</span>
-            <span class="arrow">⬇️</span>
-          </div>
-          <div class="accordion-content">
-            <p>ابدأ مباشرة من خلال خطة المذاكرة التفصيلية خطوة بخطوة:</p>
-            <a href="#" class="link-btn">
-              <span class="emoji">🔗</span> اضغط هنا لخطة المذاكرة
-            </a>
-          </div>
+      <h2>🚀 البداية واستخراج المحتوى</h2>
+      <div class="accordion-item">
+        <div class="question-header">
+          <span>س: أبدأ إزاي مذاكرة؟</span>
+          <span class="arrow">⬇️</span>
         </div>
-        <div class="accordion-item">
-          <div class="question-header">
-            <span>س: يعني إيه موقع المتابعة؟</span>
-            <span class="arrow">⬇️</span>
-          </div>
-          <div class="accordion-content">
-            <p>موقع المتابعة هو أداة لمساعدتك في تتبع تقدمك وتقييم أدائك.</p>
-            <a href="#" class="link-btn">
-              <span class="emoji">🌐</span> اضغط للوصول لموقع المتابعة
-            </a>
-          </div>
+        <div class="accordion-content">
+          <p>ابدأ مباشرة من خلال خطة المذاكرة التفصيلية خطوة بخطوة:</p>
+          <a href="#" class="link-btn">
+            <span class="emoji">🔗</span> اضغط هنا لخطة المذاكرة
+          </a>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <div class="question-header">
+          <span>س: يعني إيه موقع المتابعة؟</span>
+          <span class="arrow">⬇️</span>
+        </div>
+        <div class="accordion-content">
+          <p>موقع المتابعة هو أداة لمساعدتك في تتبع تقدمك وتقييم أدائك.</p>
+          <a href="#" class="link-btn">
+            <span class="emoji">🌐</span> اضغط للوصول لموقع المتابعة
+          </a>
         </div>
       </div>
     </div>
 
     <script>
-      // 1. كود التبويبات (Tabs)
-      const tabButtons = document.querySelectorAll(".tab-button");
-      const tabContents = document.querySelectorAll(".tab-content");
-
-      tabButtons.forEach((button) => {
-        button.addEventListener("click", () => {
-          const tabId = button.dataset.tab;
-
-          // إزالة حالة النشاط من كل الأزرار والمحتويات
-          tabButtons.forEach((btn) => btn.classList.remove("active"));
-          tabContents.forEach((content) => content.classList.remove("active"));
-
-          // إغلاق كل الأكورديونات المفتوحة في المحتوى السابق
-          document
-            .querySelectorAll(".accordion-content.active")
-            .forEach((acc) => {
-              acc.classList.remove("active");
-              acc.style.maxHeight = 0;
-              acc.previousElementSibling.classList.remove("active");
-            });
-
-          // إضافة حالة النشاط للزر والمحتوى المطلوب
-          button.classList.add("active");
-          document.getElementById(tabId).classList.add("active");
-        });
-      });
-
-      // 2. كود الأكورديون (Accordion) داخل كل تبويبة
       document.addEventListener("DOMContentLoaded", function () {
         const headers = document.querySelectorAll(".question-header");
 
@@ -378,31 +305,22 @@
           header.addEventListener("click", function () {
             const content = this.nextElementSibling;
 
-            // تحديد محتوى التبويبة الحالي
-            const currentTab = this.closest(".tab-content");
-
-            // إغلاق كل الأجوبة المفتوحة في التبويبة الحالية أولاً (لفتح سؤال واحد فقط)
-            if (currentTab) {
-              currentTab
-                .querySelectorAll(".question-header.active")
-                .forEach((h) => {
-                  if (h !== this) {
-                    h.classList.remove("active");
-                    h.nextElementSibling.classList.remove("active");
-                    h.nextElementSibling.style.maxHeight = 0;
-                  }
-                });
-            }
+            // إغلاق كل الأجوبة المفتوحة أولاً
+            headers.forEach((h) => {
+              if (h !== this) {
+                h.classList.remove("active");
+                h.nextElementSibling.classList.remove("active");
+                h.nextElementSibling.style.maxHeight = 0;
+              }
+            });
 
             // فتح أو إغلاق السؤال الذي تم النقر عليه
             this.classList.toggle("active");
             content.classList.toggle("active");
 
             if (content.classList.contains("active")) {
-              // الفتح: تحديد الارتفاع الفعلي للمحتوى
-              content.style.maxHeight = content.scrollHeight + 40 + "px";
+              content.style.maxHeight = content.scrollHeight + 30 + "px";
             } else {
-              // الإغلاق: إعادة الارتفاع إلى صفر
               content.style.maxHeight = 0;
             }
           });
