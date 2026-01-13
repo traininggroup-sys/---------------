@@ -45,12 +45,13 @@
 
       /* --- العناوين والافتتاحية --- */
       h1 {
-        color: var(--dark-primary);
+        color: black;
         text-align: center;
         margin-bottom: 5px;
-        font-size: 2.2em; /* تصغير حجم العنوان للشاشات الصغيرة */
+        font-size: 20dpx; /* تصغير حجم العنوان للشاشات الصغيرة */
         font-weight: 800;
       }
+
       .intro-text {
         text-align: center;
         margin-bottom: 30px;
@@ -226,7 +227,7 @@
           padding: 10px;
         }
         h1 {
-          font-size: 23px; /* تصغير إضافي للعنوان */
+          font-size: 18px; /* تصغير إضافي للعنوان */
         }
         .faq-grid {
           gap: 15px; /* تقليل الفراغات بين البطاقات */
@@ -239,7 +240,6 @@
   </head>
   <body>
     <div class="container">
-      <!-- ضيف ده داخل <body> قبل <div class="container"> -->
       <div
         class="channel-header"
         style="
@@ -254,7 +254,12 @@
         <a
           href="https://t.me/اسم_القناة"
           target="_blank"
-          style="display: flex; align-items: center; text-decoration: none"
+          style="
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            gap: 10px;
+          "
         >
           <img
             src="img/لوجو قناة اسئلة الجهاز المركزي.jpg"
@@ -266,15 +271,10 @@
               object-fit: cover;
               border: 2px solid #1e3a8a;
               transition: transform 0.2s;
+              margin-right: 20px; /* المسافة بين الصورة والنص */
             "
           />
-          <span
-            style="
-              font-size: 1.5em;
-              font-weight: 800;
-              color: #1e3a8a;
-              margin-left: 10px;
-            "
+          <span style="font-size: 1.5em; font-weight: 800; color: #1e3a8a"
             >اسئلة الجهاز المركزي</span
           >
         </a>
