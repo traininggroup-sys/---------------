@@ -848,6 +848,41 @@
       const panelTitle = document.getElementById("panelTitle");
       const panelAnswer = document.getElementById("panelAnswer");
 
+      // HTML اللوجو والاسم
+      const channelHeaderHTML = `
+    <div
+      class="channel-header"
+      style="
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 20px;
+        cursor: pointer;
+      "
+    >
+      <a
+        href="https://t.me/اسم_القناة"
+        target="_blank"
+        style="display: flex; align-items: center; text-decoration: none; gap: 10px;"
+      >
+        <img
+          src="img/لوجو قناة اسئلة الجهاز المركزي.jpg"
+          alt="لوغو القناة"
+          style="
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            object-fit: cover;
+            border: 2px solid #1e3a8a;
+          "
+        />
+        <span style="font-size: 1.2em; font-weight: 800; color: #1e3a8a">
+          أسئلة الجهاز المركزي
+        </span>
+      </a>
+    </div>
+  `;
+
       // دالة فتح الشريط الجانبي
       function openPanel(questionText, answerTemplateId) {
         // تحديث عنوان الشريط
@@ -855,6 +890,9 @@
 
         // إفراغ محتوى الإجابة الحالي
         panelAnswer.innerHTML = "";
+
+        // إضافة اللوجو والاسم في بداية الإجابة
+        panelAnswer.innerHTML = channelHeaderHTML;
 
         // نسخ المحتوى من الـ template وإضافته
         const template = document.getElementById(answerTemplateId);
