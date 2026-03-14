@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ar" dir="rtl">
   <head>
     <meta charset="UTF-8" />
@@ -708,9 +708,11 @@
           <li>نماذج مادة المعلومات العامة</li>
           <img src="img/نموذج 11.png" />
           <li>نماذج مادة الحاسب</li>
-          <img src="img/نموذج رقم 28.png" />
+          <img
+            src="img/نموذج 2 - اساسيات الكمبيوتر_ جروب أسئلة الجهاز المركزي.png"
+          />
           <li>نماذج اللغة الإنجليزية</li>
-          <img src="img/1.png" />
+          <img src="img/13.png" />
         </ul>
       </div>
       <p style="text-align: center; font-weight: 600; margin-bottom: 10px">
@@ -1109,7 +1111,7 @@
         card.addEventListener("click", () => {
           const questionId = card.dataset.qId;
           const questionText = card.querySelector(
-            ".card-question-text"
+            ".card-question-text",
           ).textContent;
           const answerTemplateId = `answer-${questionId}`;
 
